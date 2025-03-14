@@ -32,25 +32,25 @@ Issues = "https://github.com/Rashicom/meow/issues"
 Source = "https://github.com/Rashicom/meow"
 
 [tool.hatch.version]
-path = "src/meow/__about__.py"
+path = "meow/__about__.py"
 
 [tool.hatch.envs.types]
 extra-dependencies = [
   "mypy>=1.0.0",
 ]
 [tool.hatch.envs.types.scripts]
-check = "mypy --install-types --non-interactive {args:src/meow tests}"
+check = "mypy --install-types --non-interactive {args:meow tests}"
 
 [tool.coverage.run]
 source_pkgs = ["meow", "tests"]
 branch = true
 parallel = true
 omit = [
-  "src/meow/__about__.py",
+  "meow/__about__.py",
 ]
 
 [tool.coverage.paths]
-meow = ["src/meow", "*/meow/src/meow"]
+meow = ["meow", "*/src/meow"]
 tests = ["tests", "*/meow/tests"]
 
 [tool.coverage.report]
