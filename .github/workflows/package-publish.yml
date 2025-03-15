@@ -1,11 +1,52 @@
 name: Meow Package publishing action
 
-on: [push]
+on:
+    push:
+        branches:
+            - main
+
+
 jobs:
-    test:
+    pre-setup:
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                python-version: ["3.8", "3.9", "3.10"]
         steps:
-            - run: echo "Testing package initialized.."
-            - name: Testing package
-              run: |
-                  twine check dist/*
+            - run: echo "Setup project.."
+            - name: Cloning repository
+              uses: actions/checkout@v2
+            - name: Setup Python
+              uses: actions/setup-python@v2
+              with:
+                python-version: ${{matrix.python-version}}
+            - name: Install Hatch
+              run: pip install hatch
+            - name: Install hatch dependencies
+              run: hatch shell
+    
+    
+    test:
+        needs: pre-setup
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                python-version: ["3.8", "3.9", "3.10"]
+        steps:
+            - run: echo "Setup project.."
+            - name: Cloning repository
+              uses: actions/checkout@v2
+            - name: Setup Python
+              uses: actions/setup-python@v2
+              with:
+                python-version: ${{matrix.python-version}}
+            
+            - name: Install Hatch
+              run: pip install hatch
+            - name: Install hatch dependencies
+              run: hatch shell
+
+            - name: Run tests
+              run: hatch run test
+        
+            
