@@ -1,0 +1,11 @@
+name: Meow Package publishing action
+
+on: [push]
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Testing package initialized.."
+            - name: Testing package
+              run: |
+                  twine check dist/*
