@@ -22,8 +22,6 @@ jobs:
                 python-version: ${{matrix.python-version}}
             - name: Install Hatch
               run: pip install hatch
-            - name: Install hatch dependencies
-              run: hatch shell
     
     
     test:
@@ -43,8 +41,6 @@ jobs:
             
             - name: Install Hatch
               run: pip install hatch
-            - name: Install hatch dependencies
-              run: hatch shell
 
             - name: Run tests
               run: hatch run test
