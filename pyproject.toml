@@ -24,7 +24,9 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+  "pytest",
+]
 
 [project.urls]
 Documentation = "https://github.com/Rashicom/meow#readme"
@@ -50,12 +52,19 @@ omit = [
 ]
 
 [tool.coverage.paths]
-meow = ["meow", "*/src/meow"]
-tests = ["tests", "*/meow/tests"]
+meow = ["meow", "*/meow"]
+tests = ["tests", "*/tests"]
 
 [tool.coverage.report]
 exclude_lines = [
   "no cov",
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
+]
+
+
+[tool.hatch.envs.test]
+dependencies = [
+  "pytest",
+  "pytest-cov"
 ]
