@@ -1,4 +1,4 @@
-name: Meow Package publishing action
+name: Meow Package Testing action
 
 on:
     push:
