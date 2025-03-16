@@ -65,8 +65,10 @@ jobs:
             - name: Test build using twine
               run: twine check dist/*
 
-            - name: Check the version is chaged
+            - name: Check the version
               run: |
-                current_version=$(sed -n 's/^version = "\([^"]*\)"$/\1/p' pyproject.toml)
-                next_version=$(hatch version next)
-                echo "Current version: $current_version"
+                VERSION=$(hatch version)
+                echo "::set-output name=version::${VERSION}"
+            - name: check version
+              run: |
+                echo "Version: ${ steps.check_the_version.outputs.version }"
