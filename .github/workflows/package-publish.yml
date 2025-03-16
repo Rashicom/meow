@@ -44,5 +44,11 @@ jobs:
 
             - name: Run tests
               run: hatch run test:pytest
+            
+            - name: Test package
+              run: twine check dist/*
         
             
+    publish:
+        needs: test
+        runs-on: ubuntu-latest
