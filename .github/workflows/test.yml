@@ -3,7 +3,7 @@ name: Meow Package Testing action
 on:
     push:
         branches:
-            - main
+            - Dev
 
 
 jobs:
