@@ -71,4 +71,4 @@ jobs:
                 echo "::set-output name=version::${VERSION}"
             - name: check version
               run: |
-                echo "Version: ${ steps.check_the_version.outputs.version }"
+                echo "Version: ${{ steps.check_the_version.outputs.version }}"
