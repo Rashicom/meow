@@ -47,8 +47,3 @@ jobs:
             
             - name: Test package
               run: twine check dist/*
-        
-            
-    publish:
-        needs: test
-        runs-on: ubuntu-latest
