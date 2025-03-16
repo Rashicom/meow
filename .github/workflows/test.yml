@@ -7,7 +7,25 @@ on:
 
 
 jobs:
-    publish:
+    pre-setup:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                python-version: ["3.8", "3.9", "3.10"]
+        steps:
+            - run: echo "Setup project.."
+            - name: Cloning repository
+              uses: actions/checkout@v2
+            - name: Setup Python
+              uses: actions/setup-python@v2
+              with:
+                python-version: ${{matrix.python-version}}
+            - name: Install Hatch
+              run: pip install hatch
+    
+    
+    test:
+        needs: pre-setup
         runs-on: ubuntu-latest
         strategy:
             matrix:
