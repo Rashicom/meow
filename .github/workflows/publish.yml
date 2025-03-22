@@ -64,11 +64,3 @@ jobs:
 
             - name: Test build using twine
               run: twine check dist/*
-
-            - name: Check the version
-              run: |
-                VERSION=$(hatch version)
-                echo "::set-output name=version::${VERSION}"
-            - name: check version
-              run: |
-                echo "Version: ${{ steps.check_the_version.outputs.version }}"
