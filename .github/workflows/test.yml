@@ -1,9 +1,9 @@
-name: Meow Package Publish action
+name: Meow Package Testing action
 
 on:
     push:
         branches:
-            - main
+            - Dev
 
 
 jobs:
