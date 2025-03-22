@@ -3,7 +3,7 @@ name: Meow Package publishing action
 on:
     push:
         branches:
-            - main
+            - Dev
 
 
 jobs:
