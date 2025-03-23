@@ -1,5 +1,5 @@
 # Meow
-
+'Package for passowrd generation'
 [![PyPI - Version](https://img.shields.io/pypi/v/meow.svg)](https://pypi.org/project/meow)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/meow.svg)](https://pypi.org/project/meow)
 
